@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/edit.css">
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <input value="{{ exam_data[1] }}" id="exam-title">
+
+    <div class="title-card liquid">
+        <h3>#__ — title of question</h3>
+        <div id="mode-selector">
+            <button class="mode-button liquid">Edit</button>
+            <button class="mode-button liquid">Preview</button>
+        </div>
+    </div>
+
+    <div class="question-editor">
+        <div class="stimulus-editor liquid">
+            <textarea placeholder="Begin LaTeX here..."></textarea>
+        </div>
+
+        <div class="options-editor liquid">
+            <textarea class="liquid" type="text" placeholder="Question..."></textarea>
+            <br>
+            <textarea class="liquid" type="text" placeholder="Option A..."></textarea>
+            <textarea class="liquid" type="text" placeholder="Option B..."></textarea>
+            <textarea class="liquid" type="text" placeholder="Option C..."></textarea>
+            <textarea class="liquid" type="text" placeholder="Option D..."></textarea>
+        </div>
+    </div>
+
+    <div class="question-list liquid">
+        <h3>Questions</h3>
+        {% for question in question_list %}
+            <div class="question-item liquid">
+                <h4>{{ question[0] }}</h4>
+                <p>{{ question[1] }}</p>
+            </div>
+        {% endfor %}
+        
+        <div class="question-item liquid">
+            <h4>+ Add question</h4>
+        </div>
+
+    </div>
+</body>
+</html>

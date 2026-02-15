@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab+Highlight:wght@400;700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+    /* outline: 1px solid royalblue; */
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(230, 217, 184);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    text-align: center;
+    margin-top: 10px;
+    color: grey;
+}
+
+.liquid {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+form input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 119, 44);
+    outline: none;
+}
+
+form button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 119, 44);
+    background-color: rgb(255, 249, 216);
+    box-shadow: -5px 8px 0 0 #37373720;  
+    color: black;
+    cursor: pointer;
+}
+
+h2 {
+    margin: 50px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 200;
+    font-size: 60px;
+}
+
+div#exam-grid {
+    position: absolute;
+    width: 100vw;
+    height: 80vh;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 50px;
+    padding: 50px;
+}
+
+div#exam-grid div.exam-card {
+    position: relative;
+    background-color: rgb(255, 249, 216);
+    border: 3px solid rgb(180, 119, 44);
+    border-radius: 25px;
+    box-shadow: -10px 15px 0 0 #37373720;  
+    padding: 10px;
+    cursor: pointer;
+    height: 225px;
+    min-width: 150px;
+    max-width: 300px;
+}
+
+div#exam-grid div.exam-card#new-exam {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed rgb(180, 119, 44);
+}
+
+div#exam-grid div.exam-card:hover {
+    background-color: rgb(255, 239, 196);
+}
+
+div#exam-grid div.exam-card h3 {
+    margin: 10px 0;
+}
+
+div#exam-grid div.exam-card p {
+    text-align: right;
+    color: grey;
+    font-size: 14px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+
+div#exam-grid div.exam-card span {
+    font-size: 80px;
+    font-weight: bold;
+    color: rgba(180, 119, 44, 0.25);
+    text-align: center;
+    display: block;
+}
+
+div#exam-grid div.exam-card div.options {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 10px;
+    width: calc(100% - 20px);
+}
+
+div#exam-grid div.exam-card button {
+    flex: 1;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 119, 44);
+    background-color: rgb(255, 249, 216);
+    box-shadow: -3px 5px 0 0 #37373720;  
+    color: black;
+    cursor: pointer;
+}
+
+div#exam-grid div.exam-card button.preview:hover {
+    background-color: rgb(200, 255, 200);
+}
+
+div#exam-grid div.exam-card button.delete:hover {
+    background-color: rgb(255, 200, 200);
+}
+
+
+
