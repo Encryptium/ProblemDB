@@ -6,46 +6,86 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/static/css/edit.css">
     <script src="/static/js/script.js" defer></script>
+    <script src="/static/js/soe.js" defer></script>
 </head>
 <body>
-    <input value="{{ exam_data[1] }}" id="exam-title">
+    <div class="header liquid">
+        <a id="back-button" href="/"></a>
+        <input name="exam-title" value="{{ exam_data[1] }}" id="exam-title" class="soe">
+        <a href="export" class="highlight-button liquid">Export</a>
+    </div>
 
     <div class="title-card liquid">
-        <h3>#__ — title of question</h3>
+        <h3><span id="qn">1</span>. <input class="question-title soe" name="title" value="{{ question_list[0][1] }}" class="soe"></h3>
+        <input type="hidden" value="{{ question_list[0][0] }}">
         <div id="mode-selector">
-            <button class="mode-button liquid">Edit</button>
-            <button class="mode-button liquid">Preview</button>
+            <a class="mode-button liquid">Edit</a>
+            <a class="mode-button liquid">Preview</a>
         </div>
     </div>
 
     <div class="question-editor">
         <div class="stimulus-editor liquid">
-            <textarea placeholder="Begin LaTeX here..."></textarea>
+            <textarea name="con" class="soe" placeholder="Begin LaTeX here..."></textarea>
         </div>
 
         <div class="options-editor liquid">
-            <textarea class="liquid" type="text" placeholder="Question..."></textarea>
+            <textarea name="q" class="soe liquid" type="text" placeholder="Question..."></textarea>
             <br>
-            <textarea class="liquid" type="text" placeholder="Option A..."></textarea>
-            <textarea class="liquid" type="text" placeholder="Option B..."></textarea>
-            <textarea class="liquid" type="text" placeholder="Option C..."></textarea>
-            <textarea class="liquid" type="text" placeholder="Option D..."></textarea>
+            <textarea name="ao1" class="soe liquid" type="text" placeholder="Option A..."></textarea>
+            <textarea name="ao2" class="soe liquid" type="text" placeholder="Option B..."></textarea>
+            <textarea name="ao3" class="soe liquid" type="text" placeholder="Option C..."></textarea>
+            <textarea name="ao4" class="soe liquid" type="text" placeholder="Option D..."></textarea>
         </div>
     </div>
 
     <div class="question-list liquid">
-        <h3>Questions</h3>
-        {% for question in question_list %}
-            <div class="question-item liquid">
-                <h4>{{ question[0] }}</h4>
-                <p>{{ question[1] }}</p>
+        <h3>Settings</h3>
+        <div class="settings-list">
+            <div id="settings-button" class="liquid settings-item">
+                <h4>Export Format</h4>
+                <p>Choose a formatting style</p>
             </div>
-        {% endfor %}
-        
-        <div class="question-item liquid">
-            <h4>+ Add question</h4>
         </div>
 
+        <h3>Questions</h3>
+
+        <div class="question-update-list">
+            {% for question in question_list %}
+                <div class="question-item liquid" data-question-id="{{ question[0] }}">
+                    <h4>{{ loop.index0 + 1 }}. {{ question[1] }}</h4>
+                    <p>{{ question[3] | capitalize }} problem</p>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="question-item liquid" id="add-question">
+            <h4>+ Add question</h4>
+        </div>
+    </div>
+
+    <div id="background-blur"></div>
+
+    <div id="settings-modal" class="liquid">
+        <div id="close-settings" class="liquid">[x]</div>
+        <div class="modal-content">
+            <h2>Export Format</h2>
+            <p>Choose a LaTeX style</p>
+            <div class="format-options">
+                <div class="format-option liquid" data-format="sc">
+                    <h3>GullSO</h3>
+                    <p>Format questions in a single column layout. Suitable for practice with lots of space.</p>
+                </div>
+                <div class="format-option liquid" data-format="aops">
+                    <h3>MIT SciO</h3>
+                    <p>Format questions in a compact two-column layout. Suitable for competitive exams.</p>
+                </div>
+                <div class="format-option liquid" data-format="custom">
+                    <h3>Custom Style</h3>
+                    <p>Format questions in a custom style of your choice.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

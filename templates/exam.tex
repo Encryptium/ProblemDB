@@ -1,0 +1,48 @@
+\documentclass[10pt,twocolumn]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\setlength{\columnsep}{0.35in}   % space between the two columns
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+% ---------- PAGE HEADER ----------
+\noindent {{ exam.date }} \hfill Exam Questions
+
+\begin{center}
+\Large \textbf{ {{ exam.title }} }\\[2pt]
+\normalsize {{ exam.au }}
+\end{center}
+
+\noindent Team Name (Circle One): \underline{BLACK/WHITE/PURPLE} \hfill\\
+Participant Names: \underline{\hspace{5.5cm}}\\[4pt]
+\underline{\hspace{8.5cm}}\\
+Time: 50 minutes \hfill Total Points: \underline{\hspace{1.5cm}}\\[6pt]
+
+\textbf{Instructions:} Show work for all calculations. Participants may use a Class III calculator and one two-sided 8.5''$\times$11'' note sheet. DIGITAL NOTES ARE ALLOWED, BUT NO INTERNET ACCESS, and must follow the same form as permitted.
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+{% for question in questions %}
+\item
+{% if question.con %}
+{{ question.con }}\\
+{% endif %}
+{{ question.q }}
+\begin{enumerate}[label=\Alph*.]
+{% for choice in question.ao %}
+\item {{ choice }}
+{% endfor %}
+\end{enumerate}
+{% endfor %}
+
+\end{enumerate}
+\end{document}

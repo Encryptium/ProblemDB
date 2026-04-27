@@ -1,11 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Zilla+Slab+Highlight:wght@400;700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+:root {
+    /* --bg-color: rgb(230, 217, 184);
+    --card-bg-color: rgb(255, 249, 216);
+    --border-color: rgb(180, 119, 44);
+    --shadow-color: #37373720;
+    --hover-preview-color: rgb(200, 255, 200);
+    --hover-delete-color: rgb(255, 200, 200); */
+
+    --bg-color: rgb(15, 11, 0);
+    --text-color: rgb(255, 249, 216);
+    --card-bg-color: rgb(46, 39, 0);
+    --border-color: rgb(180, 119, 44);
+    --shadow-color: #52525220;
+    --hover-preview-color: rgb(0, 80, 0);
+    --hover-delete-color: rgb(56, 0, 0);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Space Mono', monospace;
-    outline: 1px solid royalblue;
+    /* outline: 1px solid royalblue; */
+    color: var(--text-color);
 }
 
 body {
@@ -13,7 +31,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(220, 188, 144);
+    background-color: var(--bg-color);
 }
 
 a {
@@ -23,17 +41,17 @@ a {
     padding: 5px 20px;
     margin: 10px;
     border-radius: 5px;
-    border: 5px solid rgb(180, 119, 44);
-    background-color: rgb(255, 249, 216);
-    color: black;
+    border: 5px solid var(--border-color);
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
     text-decoration: none;
     /* solid offset box shadow */
-    box-shadow: -15px 20px 0 0 #37373720;  
+    box-shadow: -15px 20px 0 0 var(--shadow-color);  
     cursor: pointer;
 }
 
 a:hover {
-    background-color: rgb(255, 239, 196);
+    background-color: var(--hover-preview-color);
 }
 
 h1 {
@@ -57,8 +75,9 @@ form input {
     padding: 10px;
     width: 300px;
     border-radius: 5px;
-    border: 1px solid rgb(180, 119, 44);
+    border: 1px solid var(--border-color);
     outline: none;
+    background-color: var(--card-bg-color);
 }
 
 form button {
@@ -66,10 +85,10 @@ form button {
     margin: 20px auto;
     padding: 10px 20px;
     border-radius: 5px;
-    border: 1px solid rgb(180, 119, 44);
-    background-color: rgb(255, 249, 216);
-    box-shadow: -5px 8px 0 0 #37373720;  
-    color: black;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg-color);
+    box-shadow: -5px 8px 0 0 var(--shadow-color);  
+    color: var(--text-color);
     cursor: pointer;
 }
 
@@ -90,10 +109,10 @@ div#exam-grid {
 }
 
 div#exam-grid div.exam-card {
-    background-color: rgb(255, 249, 216);
-    border: 3px solid rgb(180, 119, 44);
+    background-color: var(--card-bg-color);
+    border: 3px solid var(--border-color);
     border-radius: 5px;
-    box-shadow: -10px 15px 0 0 #37373720;  
+    box-shadow: -10px 15px 0 0 var(--shadow-color);  
     padding: 10px;
     cursor: pointer;
     height: 150px;
